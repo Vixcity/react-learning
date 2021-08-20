@@ -7,9 +7,9 @@ git remote add gitee @git/gitee.com:admin/demo.git
 git remote add githob @git/github.com:admin/demo.git
 
 推送到Gitee
-$ git push gitee master
+git push gitee master
 推送到GitHub
-$ git push github master
+git push github master
 
 小乌龟解决冲突
 https://blog.csdn.net/GrootBaby/article/details/103874061
