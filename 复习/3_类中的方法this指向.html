@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person {
+            constructor(name,age) {
+                this.name = name
+                this.age = age
+            }
+            speak(){
+                console.log(this)
+            }
+        }
+
+        const p1 = new Person('tom',18)
+        // 实例调用,所以里面的this会向原型找去,找到speak方法
+        p1.speak()
+        // class会默认生成严格模式
+        // 赋值的话,就相当于直接调用,多了一个引用地址
+        // 所以找到的this为undefined
+        const x = p1.speak
+        x() // undefined
+    </script>
+</body>
+</html>
