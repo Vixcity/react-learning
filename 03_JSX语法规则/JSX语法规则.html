@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JSX语法规则</title>
     <style>
-        .title{
-            background-Color: orange;
-        }
+      .title {
+        background-color: orange;
+      }
     </style>
-</head>
-<body>
-    <div id="test">
-
-    </div>
+  </head>
+  <body>
+    <div id="test"></div>
 
     <!-- react 核心库 -->
     <script src="../js/react.development.js"></script>
@@ -22,35 +20,40 @@
     <script src="../js/react-dom.development.js"></script>
     <!-- babel 将jsx转为js -->
     <script src="../js/babel.min.js"></script>
-    
+
     <!-- 一定要写babel -->
     <script type="text/babel">
-    const myId = 'atGuiGu'
-    const myData = 'Hello React!'
-        // 1. 创建虚拟DOM
-        const VDOM = (// 不是字符串，要直接写标签
-            <div>
-                <h2 className="title" id={myId.toLocaleLowerCase()}>
-                    <span style={{color:'white',fontSize:'30px'}}>{myData.toLocaleLowerCase()}</span>
-                </h2>
-                <h2 className="title" id={myId.toUpperCase()}>
-                    <span style={{color:'white',fontSize:'30px'}}>{myData.toLocaleLowerCase()}</span>
-                </h2>
-                <input type="text" />
-            </div>
-        )
-        // 2. 渲染虚拟DOM到页面
-        ReactDOM.render(VDOM,document.getElementById('test'))
-        // JSX语法规则
-        //      1. 定义虚拟DOM时，不要写引号
-        //      2. 标签如混入JS表达式，需要用{}
-        //      3. 样式类名不要用class，要用className
-        //      4. 内联样式要用style = {{key:value}} 的形式来写
-        //      5. 虚拟只能有一个根节点
-        //      6. 标签必须闭合
-        //      7. 关于标签首字母
-        //          (1). 若小写字母开头，则将该标签转为HTML中同名元素，若HTML中无同名元素，大写字母开头
-        //          (2). 若大写字母开头，React 就会去渲染对应的组件，若组件未定义，则报错   
+      const myId = "atGuiGu";
+      const myData = "Hello React!";
+      // 1. 创建虚拟DOM
+      const VDOM = // 不是字符串，要直接写标签
+        (
+          <div>
+            <h2 className="title" id={myId.toLocaleLowerCase()}>
+              <span style={{ color: "white", fontSize: "30px" }}>
+                {myData.toLocaleLowerCase()}
+              </span>
+            </h2>
+            <h2 className="title" id={myId.toUpperCase()}>
+              <span style={{ color: "white", fontSize: "30px" }}>
+                {myData.toLocaleLowerCase()}
+              </span>
+            </h2>
+            <input type="text" />
+          </div>
+        );
+      // 2. 渲染虚拟DOM到页面
+      ReactDOM.render(VDOM, document.getElementById("test"));
+      // JSX语法规则
+      //      1. 定义虚拟DOM时，不要写引号
+      //      2. 标签如混入JS表达式，需要用{}
+      //      3. 样式类名不要用class，要用className
+      //      4. 内联样式要用style = {{key:value}} 的形式来写
+      //      5. 虚拟只能有一个根节点
+      //      6. 标签必须闭合
+      //      7. 关于标签首字母
+      //          (1). 若小写字母开头，则将该标签转为HTML中同名元素，若HTML中无同名元素，大写字母开头
+      //          (2). 若大写字母开头，React 就会去渲染对应的组件，若组件未定义，则报错
     </script>
-</body>
+  </body>
 </html>

@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1_state</title>
-</head>
-<body>
-    <div id="test">
-
-    </div>
+  </head>
+  <body>
+    <div id="test"></div>
 
     <!-- react 核心库 -->
     <script src="../js/react.development.js"></script>
@@ -19,22 +17,26 @@
     <script src="../js/babel.min.js"></script>
 
     <script type="text/babel">
-        class Weather extends React.Component {
-            // 初始化状态
-            state = {isHot:true}
+      class Weather extends React.Component {
+        // 初始化状态
+        state = { isHot: true };
 
-            render() {
-                const { isHot } = this.state
-                return <h1 onClick={this.changeWeather}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
-            }
-            // 自定义方法 = 赋值语句 + 箭头函数
-            changeWeather = () => {
-                const { isHot } = this.state
-                this.setState({isHot:!isHot})
-            }   
+        render() {
+          const { isHot } = this.state;
+          return (
+            <h1 onClick={this.changeWeather}>
+              今天天气很{isHot ? "炎热" : "凉爽"}
+            </h1>
+          );
         }
-        // 2. 渲染组件到页面
-        ReactDOM.render(<Weather/>,document.getElementById('test'))
+        // 自定义方法 = 赋值语句 + 箭头函数
+        changeWeather = () => {
+          const { isHot } = this.state;
+          this.setState({ isHot: !isHot });
+        };
+      }
+      // 2. 渲染组件到页面
+      ReactDOM.render(<Weather />, document.getElementById("test"));
     </script>
-</body>
+  </body>
 </html>

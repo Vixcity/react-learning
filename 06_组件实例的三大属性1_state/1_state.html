@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1_state</title>
-</head>
-<body>
-    <div id="test">
-
-    </div>
+  </head>
+  <body>
+    <div id="test"></div>
 
     <!-- react 核心库 -->
     <script src="../js/react.development.js"></script>
@@ -18,7 +16,7 @@
     <!-- babel 将jsx转为js -->
     <script src="../js/babel.min.js"></script>
 
-<!--   
+    <!--   
     <script type="text/babel">
         // 1. 创建组件
         class Weather extends React.Component {
@@ -54,41 +52,44 @@
     </script> 
 -->
 
-
     <script type="text/babel">
-        // 1. 创建组件
-        class Weather extends React.Component {
-            // 构造器调用几次？ -- 1次
-            constructor (props) {
-                super(props)
-                // 初始化状态
-                this.state = {isHot:true}
-                // 解决 changeWeather 中 this 指向问题
-                this.changeWeather = this.changeWeather.bind(this)
-            }
-            // render 调用几次？ -- 1+n次 1是初始化那次，n是状态更新的次数
-            render() {
-                // 对于状态进行展示
-                // 通过解构赋值进行放置数据
-                const { isHot } = this.state
-                // onClick 添加点击事件
-                // 原生的3种添加事件都支持,更推荐在标签上直接写onClick
-                // onClick 不支持添加引号,需要直接写表达式的函数,不能添加括号,添加括号就相当于被执行了获取到的返回值为默认函数的返回值 undefined
-                return <h1 onClick={this.changeWeather}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
-            }
-            // changeWeather调用几次？ -- 点几次调几次
-            changeWeather() {
-                // changeWeather 放在了Weather 的原型上
-                // 获取原来的isHot值
-                const { isHot } = this.state
-                // 【严重注意！！】状态不可直接更改，要借助一个内置的API进行更改,以下写法为错误写法
-                // this.state.isHot = !isHot
-                // 如果想要修改状态，需要用setState去修改,且更新是一种合并，不是替换
-                this.setState({isHot:!isHot})
-            }   
+      // 1. 创建组件
+      class Weather extends React.Component {
+        // 构造器调用几次？ -- 1次
+        constructor(props) {
+          super(props);
+          // 初始化状态
+          this.state = { isHot: true };
+          // 解决 changeWeather 中 this 指向问题
+          this.changeWeather = this.changeWeather.bind(this);
         }
-        // 2. 渲染组件到页面
-        ReactDOM.render(<Weather/>,document.getElementById('test'))
+        // render 调用几次？ -- 1+n次 1是初始化那次，n是状态更新的次数
+        render() {
+          // 对于状态进行展示
+          // 通过解构赋值进行放置数据
+          const { isHot } = this.state;
+          // onClick 添加点击事件
+          // 原生的3种添加事件都支持,更推荐在标签上直接写onClick
+          // onClick 不支持添加引号,需要直接写表达式的函数,不能添加括号,添加括号就相当于被执行了获取到的返回值为默认函数的返回值 undefined
+          return (
+            <h1 onClick={this.changeWeather}>
+              今天天气很{isHot ? "炎热" : "凉爽"}
+            </h1>
+          );
+        }
+        // changeWeather调用几次？ -- 点几次调几次
+        changeWeather() {
+          // changeWeather 放在了Weather 的原型上
+          // 获取原来的isHot值
+          const { isHot } = this.state;
+          // 【严重注意！！】状态不可直接更改，要借助一个内置的API进行更改,以下写法为错误写法
+          // this.state.isHot = !isHot
+          // 如果想要修改状态，需要用setState去修改,且更新是一种合并，不是替换
+          this.setState({ isHot: !isHot });
+        }
+      }
+      // 2. 渲染组件到页面
+      ReactDOM.render(<Weather />, document.getElementById("test"));
     </script>
-</body>
+  </body>
 </html>
